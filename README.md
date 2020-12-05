@@ -1,7 +1,7 @@
 # TradeDemo
 
-Install Dependencies
+Install Dependencies: 
 run npm install
 
-Start Application
+Start Application: 
 run nodemon
