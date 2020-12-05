@@ -21,7 +21,7 @@ router.route('/product/comment/:id').post(auth, Controller.Product.comment);
 
 router.route('/product/reply/:pid/:id').post(auth, Controller.Product.reply);
 
-router.route('/upload-product').get(Controller.Product.index);
+router.route('/upload-product').get(auth, Controller.Product.index);
 
 
 router.route('/upload-product').post(auth, multer.single('image'), Controller.Product.uploadProduct);
