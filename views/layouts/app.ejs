@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trade Demo</title>
+    <meta name="keywords" content="HTML5 Template">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/images/icons/site.html">
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="/images/icons/favicon.ico">
+
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAhk0GWQGFyKybA2D87RKqzIxNTXYmTZ60&callback=initMap'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/js/locationPicker.js"></script>
+    <%-stylesheets%>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="header-middle sticky-header">
+                <div class="container">
+                    <div class="header-left">
+
+
+                        <nav class="main-nav">
+                            <a style="font-size: x-large;" class="" href="/">Home</a>
+                        </nav>
+                        <!-- End .main-nav -->
+                    </div>
+                    <!-- End .header-left -->
+
+                    <div class="header-right">
+                        <div class="header-search">
+
+                        </div>
+                        <!-- End .header-search -->
+                        <div class="dropdown compare-dropdown">
+                            <a style="font-size: x-large;" class="" href="/upload-product">Upload Product</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <% if (data){%>
+                                <a style="font-size: x-large;" href="/logout">Logout</a>
+                                <%}else{%> <a style="font-size: x-large;" href="/auth">Login</a>
+                                    <%}%>
+                        </div>
+                    </div>
+                    <!-- End .header-right -->
+                </div>
+                <!-- End .container -->
+            </div>
+            <!-- End .header-middle -->
+        </header>
+
+        <%-body%>
+
+            <footer class="footer">
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="footer-copyright">Copyright © 2020 DXR. All Rights Reserved.</p>
+                        <!-- End .footer-copyright -->
+                        <figure class="footer-payments">
+                            <img src="/images/payments.png" alt="Payment methods" width="272" height="20">
+                        </figure>
+                        <!-- End .footer-payments -->
+                    </div>
+                    <!-- End .container -->
+                </div>
+                <!-- End .footer-bottom -->
+            </footer>
+            <!-- End .footer -->
+    </div>
+    <!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <!-- End .mobil-menu-overlay -->
+
+
+
+    <!-- Plugins JS File -->
+    <%-scripts%>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/jquery.hoverIntent.min.js"></script>
+        <script src="/js/jquery.waypoints.min.js"></script>
+        <script src="/js/superfish.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <!-- Main JS File -->
+        <script src="/js/main.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</body>
+
+</html>

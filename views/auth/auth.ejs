@@ -1,0 +1,140 @@
+<% layout('../layouts/app') -%>
+    <main class="main">
+
+        <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('assets/images/backgrounds/login-bg.jpg')">
+            <div class="container">
+                <div class="form-box">
+                    <% if (messages.success || messages.error) { %>
+                        <div class="alert alert-<%= messages.success ? 'success':'danger' %> alert-dismissible fade show" role="alert">
+                            <%= messages.success || messages.error %>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <% } %>
+                            <div class="form-tab">
+                                <ul class="nav nav-pills nav-fill" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Sign In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Register</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
+                                        <form action="#">
+                                            <div class="form-group">
+                                                <label for="singin-email-2">Email address *</label>
+                                                <input type="email" class="form-control" id="lemail" name="email" required>
+                                            </div>
+                                            <!-- End .form-group -->
+
+                                            <div class="form-group">
+                                                <label for="singin-password-2">Password *</label>
+                                                <input type="password" class="form-control" id="lpassword" name="password" required>
+                                            </div>
+                                            <!-- End .form-group -->
+
+                                            <div class="form-footer">
+                                                <button id="login" class="btn btn-outline-primary-2">
+			                					<span>LOG IN</span>
+			                				</button>
+                                            </div>
+                                            <!-- End .form-footer -->
+                                        </form>
+
+                                    </div>
+                                    <!-- .End .tab-pane -->
+                                    <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
+                                        <form action="#">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="register-email-2">Name *</label>
+                                                        <input type="text" class="form-control" id="name" name="name" required>
+                                                    </div>
+                                                </div>
+                                                <!-- End .form-group -->
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="register-password-2">Email *</label>
+                                                        <input type="email" class="form-control" id="email" name="email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="register-password-2">Phone Number *</label>
+                                                        <input type="number" class="form-control" id="phone" name="phone" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="register-password-2">Password *</label>
+                                                        <input type="password" class="form-control" id="password" name="password" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <h5><b>Select Location</b></h5>
+                                                </div>
+                                            </div>
+
+                                            <div id="us3" class="col-md-12 loc" style="max-width: -webkit-fill-available;
+                                    min-height: 400px;"></div>
+                                            <input type="text" id="us3-lat" name="lat" style="display: none" />
+                                            <input type="text" id="us3-lon" name="long" style="display: none" />
+
+                                            <div class="form-group row" style="margin-top: 10px;">
+                                                <div class="col-lg-6 col-lg-6"> <input class="form-control" id="us3-address" name="address" disabled="disabled" />
+                                                </div>
+                                            </div>
+
+                                            <script>
+                                                var lat = 6.6254446;
+                                                var long = 3.1520689;
+
+                                                $('#us3').locationpicker({
+                                                    location: {
+                                                        latitude: lat,
+                                                        longitude: long
+                                                    },
+                                                    radius: 10,
+                                                    inputBinding: {
+                                                        latitudeInput: $('#us3-lat'),
+                                                        longitudeInput: $('#us3-lon'),
+                                                        radiusInput: $('#us3-radius'),
+                                                        locationNameInput: $('#us3-address')
+                                                    },
+                                                    enableAutocomplete: true,
+                                                });
+                                            </script>
+
+                                            <div class="form-footer">
+                                                <button id="signup" class="btn btn-outline-primary-2">
+			                					<span>SIGN UP</span>
+			            						
+			                				</button>
+                                            </div>
+                                            <!-- End .form-footer -->
+                                        </form>
+
+                                    </div>
+                                    <!-- .End .tab-pane -->
+                                </div>
+                                <!-- End .tab-content -->
+                            </div>
+                            <!-- End .form-tab -->
+                </div>
+                <!-- End .form-box -->
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End .login-page section-bg -->
+    </main>
+
+
+    <% script('/js/auth.js') -%>

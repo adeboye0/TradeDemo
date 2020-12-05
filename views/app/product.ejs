@@ -1,0 +1,179 @@
+<% layout('../layouts/app') -%>
+    <main class="main">
+        <div class="page-content">
+            <div class="container">
+                <div class="product-details-top">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery product-gallery-vertical">
+                                <div class="row">
+
+                                    <figure style="margin-top: 40px;" class="product-main-image">
+                                        <img id="product-zoom" style="
+                                        height: auto;
+                                        width: 300px;" src="<%= product.imageUrl %>" data-zoom-image="/images/products/single/1-big.jpg" alt="product image">
+
+                                    </figure>
+
+                                </div>
+                                <!-- End .row -->
+                            </div>
+                            <!-- End .product-gallery -->
+                        </div>
+                        <!-- End .col-md-6 -->
+
+                        <div class="col-md-6">
+                            <div style="margin-top: 80px;" class="product-details">
+                                <h1 class="product-title">
+                                    <%= product.name %>
+                                </h1>
+                                <!-- End .product-title -->
+
+
+                                <div class="product-content">
+                                    <p>
+                                        <%= product.description %>
+                                    </p>
+                                </div>
+                                <!-- End .product-content -->
+
+                                <form>
+                                    <div class="form-group">
+                                        <input type="text" id="id" value="<%= product._id%>" hidden>
+                                        <label for="address">Enter Comment *</label>
+                                        <textarea class="form-control" id="comment" name="comment" required></textarea>
+                                    </div>
+
+                                    <button id="post-comment" class="btn btn-outline-primary-2">
+                                        <span>POST</span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <!-- End .product-details-footer -->
+                        </div>
+                        <!-- End .product-details -->
+                    </div>
+                    <!-- End .col-md-6 -->
+                </div>
+                <!-- End .row -->
+            </div>
+            <!-- End .product-details-top -->
+
+            <div class="product-details-tab">
+                <ul class="nav nav-pills justify-content-center" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="true">Comments</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+
+                    <!-- .End .tab-pane -->
+                    <div class="tab-pane fade show active" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
+                        <div class="row">
+                            <div class="col-3">
+                            </div>
+                            <div class="col-6">
+                                <div class="reviews">
+                                    <% if (!product.comments.length){ %>
+                                        <div class="py-5 text-center">
+
+                                            <h4 style="
+                                                        padding-bottom: 28px;" class="mt-3 text-center">No Comment yet.</h4>
+                                        </div>
+                                        <% } %>
+                                            <% if (product.comments) {%>
+                                                <%product.comments = product.comments.reverse();%>
+                                                    <%product.comments.forEach(comment => {%>
+                                                        <div class="review">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-auto">
+                                                                    <h4>
+                                                                        <a href="#">
+                                                                            <%= comment.name %>
+                                                                        </a>
+                                                                    </h4>
+
+                                                                </div>
+                                                                <!-- End .col -->
+                                                                <div class="col">
+                                                                    <div class="review-content">
+                                                                        <p>
+                                                                            <%= comment.comment %>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <% if (comment.replies) {%>
+                                                                        <% comment.replies.forEach(reply => {%>
+                                                                            <div class="col-auto">
+                                                                                <h4>
+                                                                                    <a href="#">
+                                                                                        <%= reply.name %>
+                                                                                    </a>
+                                                                                </h4>
+
+                                                                            </div>
+                                                                            <!-- End .col -->
+                                                                            <div class="col">
+                                                                                <div class="review-content">
+                                                                                    <p>
+                                                                                        <%= reply.reply %>
+                                                                                    </p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <%})%>
+                                                                                <%}%>
+
+                                                                                    <div class="bg-white p-2">
+                                                                                        <input type="text" id="post-id" value="<%= product._id%>" hidden>
+                                                                                        <input type="text" id="comment-id" value="<%= comment._id%>" hidden>
+                                                                                        <input type="text" id="comment-email" value="<%= comment.email%>" hidden>
+                                                                                        <input type="text" id="comment-phone" value="<%= comment.phoneNumber%>" hidden>
+                                                                                        <input type="text" id="reply" />
+                                                                                        <button id="post-reply" class="btn btn-outline-primary-2">
+                                                                    <span>REPLY</span>
+                                                                </button>
+                                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End .col-auto -->
+                                                            </div>
+                                                            <!-- End .row -->
+                                                        </div>
+                                                        <%})%>
+                                                            <%} else { %>
+                                                                <div class="review">
+                                                                    <div class="row no-gutters">
+                                                                        <div class="col-auto">
+                                                                            <h4>
+                                                                                <a href="#">
+                                                                            No comments yet
+                                                                        </a>
+                                                                            </h4>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <%}%>
+                                                                </div>
+                                </div>
+                                <div class="col-3">
+                                </div>
+                            </div>
+
+                            <!-- End .reviews -->
+                        </div>
+                        <!-- .End .tab-pane -->
+                    </div>
+                    <!-- End .tab-content -->
+                </div>
+                <!-- End .product-details-tab -->
+
+
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End .page-content -->
+    </main>
+    <% script('/js/scripts.js') %>

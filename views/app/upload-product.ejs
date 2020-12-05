@@ -1,0 +1,99 @@
+<% layout('../layouts/app') -%>
+    <main class="main">
+        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+            <div class="container d-flex align-items-center" style="width: 1188px !important;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Become A Vendor</li>
+                </ol>
+
+
+            </div>
+            <!-- End .container -->
+        </nav>
+        <!-- End .breadcrumb-nav -->
+        <div class="mb-3"></div>
+        <div class="page-content">
+            <div class="container" style="width: 1188px !important;">
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="sName">Product Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="address">Description *</label>
+                                <input type="text" class="form-control" id="desc" name="desc" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-lg-12">
+                                    <h5><b>Select Location</b></h5>
+                                </div>
+                            </div>
+                            <input type="text" id="lat" value="<%= data.lat %>" style="display: none" />
+                            <input type="text" id="long" value="<%= data.long %>" style="display: none" />
+
+                            <div id="us3" class="col-md-12 loc" style="max-width: -webkit-fill-available;
+                        min-height: 400px;"></div>
+                            <input type="text" id="us3-lat" name="lat" style="display: none" />
+                            <input type="text" id="us3-lon" name="long" style="display: none" />
+
+                            <div class="form-group row" style="margin-top: 10px;">
+                                <div class="col-lg-6 col-lg-6"> <input class="form-control" id="us3-address" name="address" disabled="disabled" />
+                                </div>
+                            </div>
+
+                            <script>
+                                var lat = document.getElementById('lat').value;
+                                var long = document.getElementById('long').value;
+                                $('#us3').locationpicker({
+                                    location: {
+                                        latitude: lat,
+                                        longitude: long
+                                    },
+                                    radius: 10,
+                                    inputBinding: {
+                                        latitudeInput: $('#us3-lat'),
+                                        longitudeInput: $('#us3-lon'),
+                                        radiusInput: $('#us3-radius'),
+                                        locationNameInput: $('#us3-address')
+                                    },
+                                    enableAutocomplete: true,
+                                });
+                            </script>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-lg-12">
+                                    <div class="file-input-wrapper">
+                                        <input id="uploadImage" type="file" class="" name="image" required/>
+                                        <button class="btn-upload">Upload Picture</button>
+                                    </div>
+                                    <div class="image-area">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <button id="upload" class="btn btn-outline-primary-2">
+                                <span>SUBMIT</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </main>
+    <% script('/js/scripts.js') %>
+        <% script('/js/upload-product.js') %>
